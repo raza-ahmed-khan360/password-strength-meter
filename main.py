@@ -39,7 +39,9 @@ password = st.text_input("Enter your password", type="password")
 if password:
     score, details = calculate_strength(password)
     label = strength_label(score)
-    st.write("Password Strength:", label)
+    # Added code to compute percentage strength
+    percentage = (score / 5) * 100
+    st.write("Password Strength:", label, f"({percentage:.0f}%)")
     st.progress(score / 5)
     st.write("Criteria:")
     criteria = {
