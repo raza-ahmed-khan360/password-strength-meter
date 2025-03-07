@@ -1,7 +1,7 @@
 import re
 import streamlit as st
 
-st.set_page_config(page_title="Password Strength Meter", page_icon="🔑")  # Added page config with favicon emoji
+st.set_page_config(page_title="Password Strength", page_icon="🔑")
 
 def calculate_strength(password):
     score = 0
