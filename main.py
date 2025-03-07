@@ -1,6 +1,8 @@
 import re
 import streamlit as st
 
+st.set_page_config(page_title="Password Strength Meter", page_icon="🔑")  # Added page config with favicon emoji
+
 def calculate_strength(password):
     score = 0
     details = {}
@@ -28,13 +30,13 @@ def calculate_strength(password):
 
 def strength_label(score):
     if score <= 2:
-        return "Weak"
+        return "Weak 😞"
     elif score <= 4:
-        return "Moderate"
+        return "Moderate 😐"
     else:
-        return "Strong"
+        return "Strong 😃"
 
-st.title("Password Strength Meter")
+st.title("Password Strength Meter 🔒") 
 password = st.text_input("Enter your password", type="password")
 if password:
     score, details = calculate_strength(password)
@@ -43,7 +45,7 @@ if password:
     percentage = (score / 5) * 100
     st.write("Password Strength:", label, f"({percentage:.0f}%)")
     st.progress(score / 5)
-    st.write("Criteria:")
+    st.write("Criteria 🔑:")  # updated criteria heading with emoji
     criteria = {
         "Minimum 12 characters": details['length'],
         "At least one special character": details['special'],
